@@ -174,11 +174,24 @@ const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     display: none;
   }
 `;
+const dashboardAnimationStyle = `
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
 
   return (
     
     <div className="h-screen overflow-hidden bg-[#07101d] text-white">
       <style>{hiddenScrollbarStyle}</style>
+      <style>{dashboardAnimationStyle}</style>  
       <div className="mx-auto h-full max-w-[1600px] p-4 sm:p-5 lg:p-6">
         <div className="mb-4 flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 xl:hidden">
   <button
@@ -336,6 +349,7 @@ const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 </aside>
 
          <main className="min-w-0 h-full overflow-y-auto space-y-6 pr-1 notes-scroll">
+          style={{ animation: "fadeInUp 0.4s ease" }}
          <section className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(135deg,rgba(15,23,42,0.96),rgba(17,24,39,0.92),rgba(30,41,59,0.88))] px-5 py-5 shadow-[0_18px_50px_rgba(0,0,0,0.28)] backdrop-blur-xl">
   <div className="absolute -top-10 left-0 h-28 w-28 rounded-full bg-cyan-400/10 blur-3xl" />
   <div className="absolute -bottom-10 right-0 h-28 w-28 rounded-full bg-violet-500/10 blur-3xl" />

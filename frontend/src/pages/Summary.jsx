@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../services/api";
+import Loader from "../components/Loader";
 
 function Summary() {
   const { id } = useParams();
@@ -85,13 +86,7 @@ function Summary() {
         </div>
 
         {loading ? (
-          <div className="space-y-3 animate-pulse">
-  <div className="h-4 w-40 rounded bg-white/10"></div>
-  <div className="h-4 w-full rounded bg-white/10"></div>
-  <div className="h-4 w-11/12 rounded bg-white/10"></div>
-  <div className="h-4 w-10/12 rounded bg-white/10"></div>
-  <div className="h-4 w-9/12 rounded bg-white/10"></div>
-</div>
+         <Loader />
         ) : (
          <div className="bg-slate-900/50 border border-white/10 rounded-2xl p-5 whitespace-pre-line text-slate-200 leading-7">
   {summary || "No summary available for this note yet."}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../services/api";
 import { toast } from "react-toastify";
+import Loader from "../components/Loader";
 
 function Quiz() {
   const { id } = useParams();
@@ -71,7 +72,7 @@ function Quiz() {
         <h1 className="text-3xl font-bold mb-6">AI Quiz</h1>
 
         {loading ? (
-          <p className="text-slate-400">Loading quiz...</p>
+          <Loader />
         ) : quiz.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-white/10 bg-white/5 p-8 text-center">
   <p className="text-lg font-medium text-white">No quiz available</p>
