@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../services/api";
+import { toast } from "react-toastify";
 
 function Quiz() {
   const { id } = useParams();
@@ -25,7 +26,7 @@ function Quiz() {
           setQuiz([]);
         }
       } catch (error) {
-        alert(error.response?.data?.message || "Failed to load quiz");
+       toast.error(error.response?.data?.message || "Failed to load quiz");
       } finally {
         setLoading(false);
       }
