@@ -13,13 +13,11 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://ai-study-helper-chl.vercel.app",
-    ],
+    origin: true,
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
